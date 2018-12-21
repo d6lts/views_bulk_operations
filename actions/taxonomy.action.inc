@@ -108,7 +108,7 @@ function views_bulk_operations_taxonomy_action(&$node, $context) {
         else {
           $new_values[]['value'] = $term_values;
         }
-        $node->$field['field_name'] = $new_values;
+        $node->{$field['field_name']} = $new_values;
       }
     }
   }
