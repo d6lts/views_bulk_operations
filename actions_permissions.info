@@ -2,9 +2,3 @@ name = Actions permissions
 description = Integrates actions with the permission system.
 package = Administration
 core = 6.x
-
-; Information added by Drupal 6 LTS vendors on 2018-12-22
-version = "6.x-1.18"
-core = "6.x"
-project = "views_bulk_operations"
-datestamp = "1545537541"
