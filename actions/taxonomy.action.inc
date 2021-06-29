@@ -34,8 +34,8 @@ function views_bulk_operations_taxonomy_action(&$node, $context) {
   switch ($context['do']) {
   case TAXONOMY_ACTION_DELETE:
     $existing_terms = taxonomy_node_get_terms($node);
-    while (list($delete_tid) = each($terms)) {
-      if (array_key_exists($delete_tid,$existing_terms)) {
+    foreach (array_keys($terms) as $delete_tid) {
+      if (array_key_exists($delete_tid, $existing_terms)) {
         unset($existing_terms[$delete_tid]);
       }
     }
@@ -136,7 +136,7 @@ function views_bulk_operations_taxonomy_action_form($context) {
     '#title' => t('Vocabularies'),
     '#tree' => TRUE,
   );
-  while (list(,$vocabulary) = each($vocabularies)) {
+  foreach ($vocabularies as $vocabulary) {
     $form['taxonomy'][$vocabulary->vid] = taxonomy_form($vocabulary->vid, isset($context['terms']) ? $context['terms'] : NULL);
     $form['taxonomy'][$vocabulary->vid]['#weight'] = $vocabulary->weight;
     if ($vocabulary->tags) { // If tags, give the ability to add new terms
@@ -182,7 +182,7 @@ function views_bulk_operations_taxonomy_action_form($context) {
  */
 function _taxonomy_action_parse_terms($taxonomy) {
   $ret = array();
-  while (list($key,$vocab) = each($taxonomy)) {
+  foreach ($taxonomy as $key => $vocab) {
     if ($key == 'tags') {
       $ret['tags'] = $vocab;
     }
@@ -190,7 +190,7 @@ function _taxonomy_action_parse_terms($taxonomy) {
       if (!empty($vocab)) $ret[] = $vocab;
     }
     else {
-      while (list(,$tid) = each($vocab)) {
+      foreach ($vocab as $tid) {
         if (!empty($tid)) $ret[] = $tid;
       }
     }
