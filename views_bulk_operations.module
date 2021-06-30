@@ -1964,7 +1964,7 @@ function _views_bulk_operations_action_validate($action, $form, $form_values) {
  */
 function _views_bulk_operations_action_submit($action, $form, &$form_state) {
   $action_submit = $action['callback'] . '_submit';
-  return call_user_func($action_submit, $form, $form_state);
+  return $action_submit($form, $form_state);
 }
 
 /**
