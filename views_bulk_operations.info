@@ -4,3 +4,9 @@ dependencies[] = views
 package = Views
 core = 6.x
 php = 5.0
+
+; Information added by Drupal 6 LTS vendors on 2021-07-12
+version = "6.x-1.19"
+core = "6.x"
+project = "views_bulk_operations"
+datestamp = "1626121625"
