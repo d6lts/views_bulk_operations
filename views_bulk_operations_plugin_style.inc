@@ -156,7 +156,7 @@ class views_bulk_operations_plugin_style extends views_plugin_style_table {
   /**
    * Implementation of views_plugin::options_validate().
    */
-  function options_validate(&$form, &$form_state) {
+  function options_validate($form, &$form_state) {
     foreach ($form_state['values']['style_options']['operations'] as $key => &$options) {
       if (empty($options['selected'])) continue;
       if (!isset($options['settings'])) continue;
@@ -172,7 +172,7 @@ class views_bulk_operations_plugin_style extends views_plugin_style_table {
   /**
    * Implementation of views_plugin::options_submit().
    */
-  function options_submit(&$form, &$form_state) {
+  function options_submit($form, &$form_state) {
     foreach ($form_state['values']['style_options']['operations'] as $key => $options) {
       if (empty($options['selected'])) continue;
       if (!isset($options['settings'])) continue;
